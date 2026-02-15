@@ -1,121 +1,99 @@
-**Low-Cost Vision-Based Autonomous 4WD Robot Research Project Documentation**
+# 🚗 Low-Cost Vision-Based Autonomous 4WD Robot  
+## ESP32 Image Processing + Arduino Motor Control
 
-**ESP32 Image Processing + Arduino Motor Control**
+A low-cost autonomous four-wheeled robot implementing real-time computer vision using an ESP32 camera module and Arduino Uno motor control.  
 
-This project presents a low-cost computer vision–based autonomous four-wheeled robot built using an ESP32 camera module for perception and an Arduino Uno (Freenove 4WD kit) for motor control.
+This project demonstrates embedded image processing, lightweight neural network inference, and closed-loop autonomous navigation using serial communication between ESP32 and Arduino.
 
-The system implements real-time image processing, neural network–based object recognition, and closed-loop autonomous navigation using a serial communication pathway between the ESP32 and Arduino.
+---
 
-Project Overview
+# 📌 Project Overview
 
-The robot:
+This system integrates:
 
-Detects obstacles using computer vision
+- 📷 ESP32-CAM for image capture and neural inference  
+- 🧠 Embedded object recognition  
+- 🔁 UART serial communication  
+- ⚙️ Arduino-based motor control  
+- 🚦 Autonomous stop / turn behavior  
+- 🧪 Experimental testing environment validation  
 
-Recognizes directional cues (stop, left, right)
+The project was developed as part of a research study on low-cost computer vision–based robotics.
 
-Performs real-time motor adjustments
+---
 
-Uses UART serial communication between ESP32 and Arduino
+# 📂 Repository Structure
+├── Automatic_Line_Tracking/
+├── Automatic_Obstacle_Avoidance/
+├── Bluetooth_Remote_Car/
+├── CameraWebServer/
+├── IR_Remote/
+├── LED_Strip/
+├── Main_Project/
+├── RF_Remote_Control_Joystick/
+├── RF_Remote_Control_Robot/
+├── Ultrasonic_Ranging/
+└── Development of a Low-Cost Computer Vision-Based Four-Wheeled Robot for Autonomous Navigation Using ESP32 Image Processing and Arduino Motor Control Research Article.pdf
 
-Demonstrates embedded TinyML-style neural inference on constrained hardware
+---
 
-This project was developed as part of a research study on low-cost autonomous navigation systems.
+---
 
-Folder Structure Overview
-Automatic_Line_Tracking/
-Automatic_Obstacle_Avoidance/
-Bluetooth_Remote_Car/
-CameraWebServer/
-IR_Remote/
-LED_Strip/
-Main_Project/
-RF_Remote_Control_Joystick/
-RF_Remote_Control_Robot/
-Ultrasonic_Ranging/
-Development of a Low-Cost Computer Vision-Based Four-Wheeled Robot for Autonomous Navigation Using ESP32 Image Processing and Arduino Motor Control Research Article.pdf
+# 🚀 Main Project Setup (IMPORTANT)
 
-Main Project Setup (IMPORTANT)
-
-The Main_Project/ folder contains the full vision-based autonomous navigation system.
-
-Follow these steps carefully.
-
-Step 1 — Navigate to Main_Project
-
-Open:
+All core autonomous vision functionality is located in:
 
 Main_Project/
 
+---
 
-Inside, you will find:
-
-images/
-
-src/
-
-neural_network/
-
-arduino/
-
-img2h.py
-
-ESP32 project files
-
-Step 2 — Replace Image Dataset
+# 🖼 Step 1 — Replace Training Images
 
 Navigate to:
-
 Main_Project/images/
-
 
 Replace the existing images with:
 
-Photos of your stop signs
+- Stop signs  
+- Left-turn signs  
+- Right-turn signs  
+- Objects you want the robot to detect  
 
-Left-turn signs
+⚠️ Use consistent lighting and clear backgrounds for best detection performance.
 
-Right-turn signs
+---
 
-Any obstacle objects you want the robot to detect
+# 🔄 Step 2 — Convert Images to Header Files
 
-⚠️ Use consistent lighting and clear backgrounds for best results.
+The ESP32 cannot directly use image files.  
+They must be converted into `.h` header arrays.
 
-Step 3 — Convert Images to Header Files
+From inside `Main_Project/`, run:
 
-The ESP32 cannot directly use image files.
-They must be converted into .h header files.
-
-In the Main_Project directory, run:
-
+```bash
 python img2h.py
-
 
 This script:
 
-Converts your images into C header arrays
+Converts images to C header arrays
 
 Generates .h files
 
-Makes them usable inside the ESP32 firmware
+Makes them usable in ESP32 firmware
 
-After running, confirm that new header files are generated.
+After running, confirm .h files were created successfully.
 
-Step 4 — Upload ESP32 Code
+🧠 Step 3 — Upload ESP32 Code
 
 Navigate to:
 
-Main_Project/src/
+Main_Project/src/esp32/neural_network/
 
+Open:
 
-Then go to:
-
-esp32/
-neural_network/
 esp32_code.ino
 
-
-Open esp32_code.ino in Arduino IDE.
+In Arduino IDE:
 
 Select Board:
 
@@ -125,129 +103,131 @@ ESP32 WROVER
 
 ESP32 WROOM
 
-Or compatible ESP32 camera module
+Or compatible ESP32 module
 
-Upload the code to your ESP32.
+Upload the code to the ESP32.
 
-Step 5 — Upload Arduino Code
+⚙️ Step 4 — Upload Arduino Code
 
 Navigate to:
 
 Main_Project/arduino/
+
+Open:
+
 arduino.ino
 
+In Arduino IDE:
 
-Open in Arduino IDE.
+Select Board: Arduino Uno
 
-Select Board:
+Upload to the Freenove robot car controller
 
-Arduino Uno (Freenove 4WD Kit)
+🧩 System Architecture
+ESP32 Responsibilities
 
-Upload to the Arduino board.
+Image acquisition
 
-System Architecture
+Neural network inference
 
-ESP32:
+Object recognition
 
-Captures images
+Command generation
 
-Runs neural network inference
+Arduino Responsibilities
 
-Detects signs / obstacles
+Receive serial commands
 
-Sends serial commands
+Control motor driver
 
-Arduino Uno:
+Execute PWM motor adjustments
 
-Receives serial commands
+Perform turning and braking
 
-Controls motor driver shield
-
-Executes movement decisions
-
-Communication:
+Communication
 
 UART Serial TX/RX
 
-Structured control packets
+Structured command packets
 
-Other Project Folders
+📚 Other Included Modules
 
-These are standalone example modules provided for modular experimentation:
+These folders provide modular demonstrations and alternative control modes:
 
-Folder	Description
+Folder	Function
 Automatic_Line_Tracking	IR-based line following
-Automatic_Obstacle_Avoidance	Ultrasonic-based avoidance
-Bluetooth_Remote_Car	Bluetooth control
-CameraWebServer	ESP32 camera streaming
+Automatic_Obstacle_Avoidance	Ultrasonic obstacle avoidance
+Bluetooth_Remote_Car	Bluetooth manual control
+CameraWebServer	ESP32 video streaming
 IR_Remote	Infrared remote control
 LED_Strip	LED control demo
 RF_Remote_Control_Joystick	RF joystick transmitter
 RF_Remote_Control_Robot	RF robot receiver
-Ultrasonic_Ranging	Distance measurement example
+Ultrasonic_Ranging	Distance measurement
 
-These are optional and useful for learning or testing individual subsystems.
+These are standalone example implementations.
 
-Research Article Included
+📄 Research Article
 
-The full research paper is included in this repository:
+Included in repository:
 
 Development of a Low-Cost Computer Vision-Based Four-Wheeled Robot for Autonomous Navigation Using ESP32 Image Processing and Arduino Motor Control
 
-This paper explains:
+This paper details:
 
-System architecture
+Hardware architecture
 
 Neural optimization
 
 Experimental setup
 
-Limitations and improvements
+Performance evaluation
 
-Educational implications
+System limitations
 
-Requirements
+Future improvements
 
-Hardware:
+🔧 Requirements
+Hardware
 
 Freenove 4WD Robot Car Kit (Arduino Uno based)
 
 ESP32-CAM (WROVER/WROOM compatible)
 
-USB-to-Serial adapter (for ESP32-CAM)
+USB-to-Serial adapter (for ESP32 upload)
 
 Rechargeable batteries
 
-Software:
+Software
 
 Arduino IDE
 
-Python 3 (for img2h.py)
+Python 3
 
-ESP32 board package installed in Arduino IDE
+ESP32 board package installed
 
-Important Notes
+⚠️ Important Notes
 
-Ensure correct TX/RX wiring between ESP32 and Arduino
+Disconnect RX/TX during uploads to avoid conflicts
 
-Disconnect RX/TX when uploading to avoid conflicts
+Ensure proper grounding between ESP32 and Arduino
 
-Verify power stability (low voltage can cause motor buzzing)
+Use stable battery voltage to prevent motor buzzing
 
-Use adequate lighting for best image recognition results
+Maintain consistent lighting for image recognition
 
-Future Improvements
+🔮 Future Improvements
 
-Quantized neural network deployment
+TinyML quantized neural networks
 
-Edge Impulse integration
+Edge Impulse deployment
 
-Sensor fusion with ultrasonic + vision
+Sensor fusion (ultrasonic + vision)
 
 Improved power regulation
 
-Real-time adaptive thresholding
+Adaptive environmental thresholding
 
-**Author**
+👤 Author
 
 **Made by Abhiram Kaakarla**
