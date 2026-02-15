@@ -1,0 +1,19 @@
+#define PIN_DIRECTION_LEFT  4
+#define PIN_DIRECTION_RIGHT 3
+#define PIN_MOTOR_PWM_LEFT  6
+#define PIN_MOTOR_PWM_RIGHT 5
+
+void setup() {
+  pinMode(PIN_DIRECTION_LEFT, OUTPUT);
+  pinMode(PIN_DIRECTION_RIGHT, OUTPUT);
+  pinMode(PIN_MOTOR_PWM_LEFT, OUTPUT);
+  pinMode(PIN_MOTOR_PWM_RIGHT, OUTPUT);
+
+  digitalWrite(PIN_DIRECTION_LEFT, LOW);
+  digitalWrite(PIN_DIRECTION_RIGHT, HIGH);
+
+  analogWrite(PIN_MOTOR_PWM_LEFT, 150);
+  analogWrite(PIN_MOTOR_PWM_RIGHT, 150);
+}
+
+void loop() {}
