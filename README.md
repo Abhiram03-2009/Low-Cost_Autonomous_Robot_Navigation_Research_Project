@@ -70,8 +70,8 @@ They must be converted into `.h` header arrays.
 
 From inside `Main_Project/`, run:
 
-```bash
-python img2h.py
+```bash```
+```python img2h.py```
 
 This script:
 
@@ -83,7 +83,7 @@ Makes them usable in ESP32 firmware
 
 After running, confirm .h files were created successfully.
 
-🧠 Step 3 — Upload ESP32 Code
+# 🧠 Step 3 — Upload ESP32 Code
 
 Navigate to:
 
@@ -107,7 +107,7 @@ Or compatible ESP32 module
 
 Upload the code to the ESP32.
 
-⚙️ Step 4 — Upload Arduino Code
+# ⚙️ Step 4 — Upload Arduino Code
 
 Navigate to:
 
@@ -123,7 +123,7 @@ Select Board: Arduino Uno
 
 Upload to the Freenove robot car controller
 
-🧩 System Architecture
+# 🧩 System Architecture
 ESP32 Responsibilities
 
 Image acquisition
@@ -150,7 +150,7 @@ UART Serial TX/RX
 
 Structured command packets
 
-📚 Other Included Modules
+# 📚 Other Included Modules
 
 These folders provide modular demonstrations and alternative control modes:
 
@@ -167,7 +167,7 @@ Ultrasonic_Ranging	Distance measurement
 
 These are standalone example implementations.
 
-📄 Research Article
+# 📄 Research Article
 
 Included in repository:
 
@@ -187,7 +187,7 @@ System limitations
 
 Future improvements
 
-🔧 Requirements
+# 🔧 Requirements
 Hardware
 
 Freenove 4WD Robot Car Kit (Arduino Uno based)
@@ -206,7 +206,7 @@ Python 3
 
 ESP32 board package installed
 
-⚠️ Important Notes
+# ⚠️ Important Notes
 
 Disconnect RX/TX during uploads to avoid conflicts
 
@@ -216,7 +216,7 @@ Use stable battery voltage to prevent motor buzzing
 
 Maintain consistent lighting for image recognition
 
-🔮 Future Improvements
+# 🔮 Future Improvements
 
 TinyML quantized neural networks
 
@@ -228,6 +228,6 @@ Improved power regulation
 
 Adaptive environmental thresholding
 
-👤 Author
+# 👤 Author
 
 **Made by Abhiram Kaakarla**
