@@ -156,15 +156,15 @@ Structured command packets
 
 These folders provide modular demonstrations and alternative control modes:
 
-**Automatic_Line_Tracking:**	IR-based line following
-**Automatic_Obstacle_Avoidance:**	Ultrasonic obstacle avoidance
-**Bluetooth_Remote_Car:**	Bluetooth manual control
-**CameraWebServer:**	ESP32 video streaming
-**IR_Remote	Infrared:** remote control
-**LED_Strip:** LED control demo
-**RF_Remote_Control_Joystick:**	RF joystick transmitter
-**RF_Remote_Control_Robot:**	RF robot receiver
-**Ultrasonic_Ranging:**	Distance measurement
+**- Automatic_Line_Tracking:**	IR-based line following
+**- Automatic_Obstacle_Avoidance:**	Ultrasonic obstacle avoidance
+**- Bluetooth_Remote_Car:**	Bluetooth manual control
+**- CameraWebServer:**	ESP32 video streaming
+**- IR_Remote	Infrared:** remote control
+**- LED_Strip:** LED control demo
+**- RF_Remote_Control_Joystick:**	RF joystick transmitter
+**- RF_Remote_Control_Robot:**	RF robot receiver
+**- Ultrasonic_Ranging:**	Distance measurement
 
 These are standalone example implementations.
 
