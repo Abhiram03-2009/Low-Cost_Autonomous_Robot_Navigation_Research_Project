@@ -34,7 +34,7 @@ The project was developed as part of a research study on low-cost computer visio
 ├── RF_Remote_Control_Joystick/
 ├── RF_Remote_Control_Robot/
 ├── Ultrasonic_Ranging/
-├── Development of a Low-Cost Computer Vision-Based Four-Wheeled Robot for Autonomous Navigation Using ESP32 Image Processing and Arduino Motor Control Research Article.pdf
+├── Research Article
 ```
 
 ---
