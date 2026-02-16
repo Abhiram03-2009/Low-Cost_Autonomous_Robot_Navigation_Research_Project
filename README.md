@@ -87,11 +87,11 @@ After running, confirm .h files were created successfully.
 
 # 🧠 Step 3 — Upload ESP32 Code
 
-Navigate to:
+**Navigate to:**
 
 Main_Project/src/esp32/neural_network/
 
-Open:
+**Open:**
 
 esp32_code.ino
 
@@ -111,11 +111,11 @@ Upload the code to the ESP32.
 
 # ⚙️ Step 4 — Upload Arduino Code
 
-Navigate to:
+**Navigate to:**
 
 Main_Project/arduino/
 
-Open:
+**Open:**
 
 arduino.ino
 
@@ -189,7 +189,7 @@ System limitations
 Future improvements
 
 # 🔧 Requirements
-Hardware
+**Hardware**
 
 Freenove 4WD Robot Car Kit (Arduino Uno based)
 
@@ -199,7 +199,7 @@ USB-to-Serial adapter (for ESP32 upload)
 
 Rechargeable batteries
 
-Software
+**Software**
 
 Arduino IDE
 
