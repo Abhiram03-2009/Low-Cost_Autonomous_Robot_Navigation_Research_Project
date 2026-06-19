@@ -168,26 +168,6 @@ These folders provide modular demonstrations and alternative control modes:
 
 These are standalone example implementations.
 
-# 📄 Research Article
-
-Included in repository:
-
-Development of a Low-Cost Computer Vision-Based Four-Wheeled Robot for Autonomous Navigation Using ESP32 Image Processing and Arduino Motor Control
-
-This paper details:
-
-Hardware architecture
-
-Neural optimization
-
-Experimental setup
-
-Performance evaluation
-
-System limitations
-
-Future improvements
-
 # 🔧 Requirements
 **Hardware**
 
