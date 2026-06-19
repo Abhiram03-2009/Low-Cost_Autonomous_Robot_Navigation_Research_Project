@@ -18,8 +18,6 @@ This system integrates:
 - 🚦 Autonomous stop / turn behavior  
 - 🧪 Experimental testing environment validation  
 
-The project was developed as part of a research study on low-cost computer vision–based robotics.
-
 ---
 
 # 📂 Repository Structure
@@ -196,18 +194,6 @@ Ensure proper grounding between ESP32 and Arduino
 Use stable battery voltage to prevent motor buzzing
 
 Maintain consistent lighting for image recognition
-
-# 🔮 Future Improvements
-
-TinyML quantized neural networks
-
-Edge Impulse deployment
-
-Sensor fusion (ultrasonic + vision)
-
-Improved power regulation
-
-Adaptive environmental thresholding
 
 # 👤 Author
 
