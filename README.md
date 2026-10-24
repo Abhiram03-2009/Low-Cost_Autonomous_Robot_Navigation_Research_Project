@@ -3,7 +3,7 @@
 
 A low-cost autonomous four-wheeled robot implementing real-time computer vision using an ESP32 camera module and Arduino Uno motor control.  
 
-This project demonstrates embedded image processing, lightweight neural network inference, and closed-loop autonomous navigation using serial communication between ESP32 and Arduino.
+The ESP32 recognizes signs and colored blocks with template matching and sends a command (STOP, LEFT, RIGHT, AVOID) over UART to the Arduino, which drives the motors.
 
 ---
 
@@ -11,7 +11,7 @@ This project demonstrates embedded image processing, lightweight neural network 
 
 This system integrates:
 
-- 📷 ESP32-CAM for image capture and neural inference  
+- 📷 ESP32-CAM for image capture and template matching  
 - 🧠 Embedded object recognition  
 - 🔁 UART serial communication  
 - ⚙️ Arduino-based motor control  
@@ -32,7 +32,6 @@ This system integrates:
 ├── RF_Remote_Control_Joystick/
 ├── RF_Remote_Control_Robot/
 ├── Ultrasonic_Ranging/
-├── Research Article
 ```
 
 ---
@@ -70,8 +69,9 @@ They must be converted into `.h` header arrays.
 
 From inside `Main_Project/`, run:
 
-```bash```
-```python img2h.py```
+```bash
+python img2h.py
+```
 
 This script:
 
@@ -87,7 +87,7 @@ After running, confirm .h files were created successfully.
 
 **Navigate to:**
 
-Main_Project/src/esp32/neural_network/
+Main_Project/src/esp32/neural network/
 
 **Open:**
 
@@ -111,7 +111,7 @@ Upload the code to the ESP32.
 
 **Navigate to:**
 
-Main_Project/arduino/
+Main_Project/src/arduino/
 
 **Open:**
 
@@ -128,15 +128,15 @@ ESP32 Responsibilities
 
 Image acquisition
 
-Neural network inference
+Template matching: each frame is downscaled to 32×24 grayscale and compared with the stored templates using the sum of absolute differences
 
-Object recognition
+Stability check: a detection is accepted only when it wins at least 70% of the last 5 frames
 
 Command generation
 
 Arduino Responsibilities
 
-Receive serial commands
+Receive serial commands (planned; see Current status)
 
 Control motor driver
 
@@ -164,7 +164,13 @@ These folders provide modular demonstrations and alternative control modes:
 **- RF_Remote_Control_Robot:**	RF robot receiver
 **- Ultrasonic_Ranging:**	Distance measurement
 
-These are standalone example implementations.
+These are standalone example sketches from the Freenove 4WD Car Kit tutorials (www.freenove.com), and `CameraWebServer` is the standard example from Espressif's ESP32 Arduino core. They were used to test the hardware and are not my original code.
+
+# 📍 Current status
+
+- Working: the ESP32 captures frames, matches them against the 10 stored templates, and prints `CMD:<command>` over serial once a detection is stable.
+- Not finished: `Main_Project/src/arduino/arduino.ino` currently runs both motors at a fixed speed and does not yet read the `CMD:` messages, so the robot does not yet stop or turn on its own.
+- Known bug: `img2h.py` writes 96×96 templates, but the ESP32 code compares 32×24 frames, so only the first 768 values of each template are used. Setting `IMAGE_WIDTH = 32` and `IMAGE_HEIGHT = 24` in `img2h.py` and regenerating the headers fixes this.
 
 # 🔧 Requirements
 **Hardware**
@@ -195,6 +201,8 @@ Use stable battery voltage to prevent motor buzzing
 
 Maintain consistent lighting for image recognition
 
-# 👤 Author
+# 👤 Author and credits
 
-**Made by Abhiram Kaakarla**
+**Main_Project (template matching, image conversion, ESP32–Arduino integration) by Abhiram Kaakarla.**
+
+Robot hardware and the example sketches in the other folders: Freenove 4WD Car Kit (www.freenove.com). `CameraWebServer`: Espressif ESP32 Arduino core example.
